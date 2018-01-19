@@ -5,7 +5,7 @@ from pg_table_markdown.utils import parse_schema_data
 from pg_table_markdown.queries import build_schema_query
 
 
-SECTION_HEADING = '### {0} {1} \n\n'
+SECTION_HEADING = '### {0} \n\n'
 SECTION_TABLE_DESC = '{0} \n\n'
 TABLE_HEADER = 'Column | Type | Default | Nullable \n'
 TABLE_DIVIDER = '--- | --- | --- | --- \n'
