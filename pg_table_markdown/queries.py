@@ -1,7 +1,8 @@
 def build_schema_query(table_schema):
     schema_query = """
-    SELECT c.table_name, 
-	c.column_name, 
+    SELECT c.table_name,
+        (select pg_catalog.obj_description(oid) from pg_catalog.pg_class cl where cl.relname=c.table_name) as table_description,
+	    c.column_name,
         c.column_default, 
         c.is_nullable, 
         c.data_type, 

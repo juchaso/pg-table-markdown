@@ -6,6 +6,7 @@ from pg_table_markdown.queries import build_schema_query
 
 
 SECTION_HEADING = '### {0} \n\n'
+SECTION_HEADING_TABLE_DESCRIPTION = '{0} \n\n'
 TABLE_HEADER = 'Column | Type | Default | Nullable \n'
 TABLE_DIVIDER = '--- | --- | --- | --- \n'
 TABLE_ROW = '{column_name} | {data_type} | {column_default} | {is_nullable} \n'
@@ -48,8 +49,10 @@ def cli(database_url, table_schema, output_file, max_length, description_text):
             TABLE_ROW_WITH_MAXLENGTH = TABLE_ROW_WITH_MAXLENGTH_WITH_DESCRIPTION
 
     with open(output_file, 'w') as f:
-        for table_name in sorted(parsed.keys()):
+        for table_name_desc in sorted(parsed.keys()):
+            table_name,table_desc = table_name_desc.split(",")
             f.write(SECTION_HEADING.format(table_name))
+            f.write(SECTION_HEADING_TABLE_DESCRIPTION.format(table_desc))
             f.write(TABLE_HEADER)
             f.write(TABLE_DIVIDER)
             for column in parsed[table_name]:
