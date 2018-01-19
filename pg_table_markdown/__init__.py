@@ -53,7 +53,7 @@ def cli(database_url, table_schema, output_file, max_length, description_text):
             f.write(SECTION_HEADING.format(table_name,table_desc))
             f.write(TABLE_HEADER)
             f.write(TABLE_DIVIDER)
-            for column in parsed[table_name]:
+            for column in parsed[table_name_desc]:
                 if max_length and column['character_maximum_length'] is not None:
                     f.write(TABLE_ROW_WITH_MAXLENGTH.format(**column))
                 else:
