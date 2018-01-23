@@ -50,7 +50,7 @@ def cli(database_url, table_schema, output_file, max_length, description_text):
 
     with open(output_file, 'w') as f:
         for table_name_desc in sorted(parsed.keys()):
-            table_name,table_desc = table_name_desc.split(",")
+            table_name,table_desc = table_name_desc.split("$")
             f.write(SECTION_HEADING.format(table_name))
             f.write(SECTION_TABLE_DESC.format(table_desc))
             f.write(TABLE_HEADER)

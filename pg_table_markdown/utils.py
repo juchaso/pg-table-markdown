@@ -8,5 +8,5 @@ def parse_schema_data(schema_data):
         table_description = i.pop('table_description')
         if table_description is None:
             table_description = 'None'
-        output[" ".join([table_name,',',table_description])].append(i)
+        output[" ".join([table_name,'$',table_description])].append(i)
     return output
